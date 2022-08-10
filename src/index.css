@@ -4,47 +4,56 @@ body {
   margin: 0;
   padding: 0;
   background-color: bisque;
-  font-family: 'Inter', 'Poppins';
+  font-family: 'Inter', sans-serif;
   box-sizing: border-box;
-
-
 }
-main{
+
+main {
   background-color: white;
   width: 60%;
   margin: auto;
   margin-top: 15%;
+
   /* text-align: center; */
   box-shadow: 0 0 10px #5f5f5f;
   border-radius: 10px;
 }
 
-.clear-btn{
+.clear-btn {
   width: 100%;
   border: none;
   padding: 15px;
   font-size: 1.2rem;
-  border-radius: 0px 0px 10px 10px;
+  border-radius: 0 0 10px 10px;
   cursor: pointer;
 }
-.clear-btn:hover{
+
+.clear-btn:hover {
   color: white;
   background-color: brown;
   transition: all 0.5s ease-out;
 }
-.heading{
+
+.heading {
   padding: 10px;
 }
-.input-item{
+
+.input-item {
   width: 80%;
   border: none;
   padding: 15px;
 }
-.input-item:focus{
+
+.input-item:focus {
   outline: 0;
   color: brown;
 }
+
 .input-item:hover::placeholder {
   transform: translateX(10px);
   transition: all 0.5s ease-out;
+}
+
+.todos {
+  margin: 10px 0;
 }
