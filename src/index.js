@@ -40,5 +40,3 @@ const onPageLoad = () => {
 };
 
 window.onload = onPageLoad();
-
-
