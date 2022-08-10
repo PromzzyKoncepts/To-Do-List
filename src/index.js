@@ -41,9 +41,4 @@ const onPageLoad = () => {
 
 window.onload = onPageLoad();
 
-// document.querySelector('#add').addEventListener('keypress', function (e) {
-//     if (e.key === 'Enter') {
-//       e = taskDisplay()
-//       inputVal.value = ''
-//     }
-// });
+
