@@ -2,8 +2,9 @@
 
 import './index.css';
 import {
-  removeTask, editTask, highlightTask, getTaskFromLocStg, taskArrayofObjects, clearCompleted,
+  removeTask, editTask, clearCompleted, highlightTask, getTaskFromLocStg, taskArrayofObjects,
 } from '../modules/functions.js';
+import updateChecked from '../modules/clearCompleted.js';
 
 window.onload = getTaskFromLocStg();
 
@@ -47,22 +48,28 @@ document.addEventListener('click', (e) => {
 
 // Event handler for the edit task function
 document.addEventListener('change', (e) => {
-  if (!e.target.matches('.task-value')) {
+  if (!(e.target.matches('.task-value') || e.target.matches('input[type=checkbox]'))) {
     return;
   }
-  const allTasks = document.querySelectorAll('.task-value');
-  allTasks.forEach((task, index) => {
-    if (e.target === task) {
-      editTask(task.value, index);
-    }
-  });
+  if (e.target.matches('.task-value')) {
+    const allTasks = document.querySelectorAll('.task-value');
+    allTasks.forEach((task, index) => {
+      if (e.target === task) {
+        editTask(task.value, index);
+      }
+    });
+  } else {
+    const checkBoxes = document.querySelectorAll('input[type=checkbox]');
+    checkBoxes.forEach((checkBox, index) => {
+      if (e.target === checkBox) {
+        updateChecked(index);
+      }
+    });
+  }
 });
 
 // Event Handler for the clearCompleted function
 const clearAll = document.querySelector('.clear-btn');
 clearAll.addEventListener('click', () => {
-  const taskValue = document.querySelector('.checkTask');
-  if (taskValue.checked === true) {
-    clearCompleted();
-  }
+  clearCompleted();
 });
