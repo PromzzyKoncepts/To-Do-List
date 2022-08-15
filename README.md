@@ -36,9 +36,9 @@ npm run build
 
 -- to run the project.
 
-## Live Demo (Coming Soon)
+## Live Demo
 
-[Live Demo Link](https://livedemo.com)
+[Live Demo Link](https://promzzykoncepts.github.io/To-Do-List/)
 
 ## Author
 
