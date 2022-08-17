@@ -14,7 +14,7 @@ import {
 
 jest
   .spyOn(document, 'querySelector')
-  .mockImplementation((selector) => document.createElement('div'));
+  .mockImplementation(() => document.createElement('div'));
 
 class LocalStorageMock {
   constructor() {
