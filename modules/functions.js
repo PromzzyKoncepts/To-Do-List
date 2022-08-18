@@ -3,6 +3,9 @@
 let toDoList = [];
 // function to add the set tasks to local storage
 const allToDos = () => toDoList;
+const setTasksList = (newTasksList) => {
+  toDoList = newTasksList;
+};
 const addToLocalStorage = (task) => {
   toDoList = JSON.parse(localStorage.getItem('tasks: '));
   if (toDoList == null) { toDoList = []; }
@@ -103,7 +106,7 @@ const clearCompleted = () => {
   const tasksElt = document.querySelectorAll('.task');
   toDoList.forEach((task, index) => {
     if (task.completed === true) {
-      tasksElt[index].remove();
+      // tasksElt[index].remove();
     }
   });
   toDoList = toDoList.filter((task) => task.completed === false);
@@ -123,4 +126,5 @@ export {
   taskDisplay,
   getTaskFromLocStg,
   taskArrayofObjects,
+  setTasksList
 };

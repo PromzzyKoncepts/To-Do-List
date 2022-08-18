@@ -124,4 +124,5 @@ describe('check for add-delete operations', () => {
     const tasksList = allToDos();
     expect(tasksList[0].description).toBe(modifiedTask);
   });
+
 });
