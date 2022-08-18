@@ -10,8 +10,6 @@ const addToLocalStorage = (task) => {
   localStorage.setItem('tasks: ', JSON.stringify(toDoList));
 };
 
-// const inputVal = document.getElementById('add');
-
 // function for the add button
 function taskDisplay(todos) {
   const addList = document.querySelector('.list-container');
