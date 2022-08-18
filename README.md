@@ -36,6 +36,24 @@ npm run build
 
 -- to run the project.
 
+### Testing
+
+```bash
+
+npm i jest
+
+npm i jest-environment-jsdom
+
+-- to install jest
+
+```
+
+```bash
+
+npm test
+
+-- to run the test
+
 ## Live Demo
 
 [Live Demo Link](https://promzzykoncepts.github.io/To-Do-List/)
