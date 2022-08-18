@@ -3,14 +3,16 @@
 let toDoList = [];
 // function to add the set tasks to local storage
 const allToDos = () => toDoList;
+const setTasksList = (newTasksList) => {
+  toDoList = newTasksList;
+};
+// function to set the task to local storage
 const addToLocalStorage = (task) => {
   toDoList = JSON.parse(localStorage.getItem('tasks: '));
   if (toDoList == null) { toDoList = []; }
   toDoList.push(task);
   localStorage.setItem('tasks: ', JSON.stringify(toDoList));
 };
-
-// const inputVal = document.getElementById('add');
 
 // function for the add button
 function taskDisplay(todos) {
@@ -36,9 +38,9 @@ function taskDisplay(todos) {
   listDiv.appendChild(ellipsis);
   listDiv.appendChild(deleteBtn);
   addList.appendChild(listDiv);
-
   taskValue.className = 'checkTask';
 }
+
 // function to get tasks from local Storage and display from Storage
 const getTaskFromLocStg = () => {
   toDoList = JSON.parse(localStorage.getItem('tasks: '));
@@ -100,10 +102,10 @@ const highlightTask = (index) => {
 
 // function for the clear completed button,
 const clearCompleted = () => {
-  const tasksElt = document.querySelectorAll('.task');
-  toDoList.forEach((task, index) => {
+  // const tasksElt = document.querySelectorAll('.task');
+  toDoList.forEach((task) => {
     if (task.completed === true) {
-      tasksElt[index].remove();
+      // tasksElt[index].remove();
     }
   });
   toDoList = toDoList.filter((task) => task.completed === false);
@@ -112,38 +114,16 @@ const clearCompleted = () => {
   }
   localStorage.setItem('tasks: ', JSON.stringify(toDoList));
 };
-// // function for the clear completed button, hint: its not functional yet
-// const clearCompleted = () => {
-//   const tasksElt = document.querySelectorAll('.task');
-//   toDoList.forEach((task, index) => {
-//     if (task.completed === true) {
-//       tasksElt[index].remove();
-//     }
-//   });
-//   toDoList = toDoList.filter((task) => task.completed === false);
-//   for (let i = toDoList.length - 1; i >= 0; i -= 1) {
-//     toDoList[i].index = i;
-//   }
-//   localStorage.setItem('tasks: ', JSON.stringify(toDoList));
-// };
-
-// const completed = (item) => {
-
-//     item.nextElementSibling.classList.toggle('completed');
-//     const modifiedList = toDoList.map((todo) => {
-//       if (todo.index === index + 1) {
-//         return {
-//           description: todo.description,
-//           completed: true,
-//           index: todo.index,
-//         };
-//       }
-//       return todo;
-//     });
-//     toDoList = modifiedList;
-//     localStorage.setItem('tasks', JSON.stringify(modifiedList));
-//   }
 
 export {
-  allToDos, clearCompleted, highlightTask, editTask, removeTask, addToLocalStorage, taskDisplay, getTaskFromLocStg, taskArrayofObjects,
+  allToDos,
+  clearCompleted,
+  highlightTask,
+  editTask,
+  removeTask,
+  addToLocalStorage,
+  taskDisplay,
+  getTaskFromLocStg,
+  taskArrayofObjects,
+  setTasksList,
 };
