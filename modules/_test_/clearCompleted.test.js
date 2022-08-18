@@ -4,11 +4,6 @@
 
 import {
   allToDos,
-  editTask,
-  removeTask,
-  addToLocalStorage,
-  taskDisplay,
-  getTaskFromLocStg,
   taskArrayofObjects,
   setTasksList,
   clearCompleted,
@@ -40,14 +35,11 @@ class LocalStorageMock {
 
 global.localStorage = new LocalStorageMock();
 
-
-
 jest
   .spyOn(document, 'querySelector')
   .mockImplementation(() => document.createElement('div'));
 
-
-describe('test for update checked and clear completed functions',() => {
+describe('test for update checked and clear completed functions', () => {
   test('update the item\'s completed status', () => {
     taskArrayofObjects('task-1');
     taskArrayofObjects('task-2');
@@ -63,7 +55,7 @@ describe('test for update checked and clear completed functions',() => {
     expect(tasksList[indexOfFinishedTask].completed).toBe(false);
   });
   test('clear all checked boxes', () => {
-    document.body.innerHTML = `<div class="tasks-container"></div>`;
+    document.body.innerHTML = '<div class="tasks-container"></div>';
     taskArrayofObjects('task-a');
     taskArrayofObjects('task-b');
     taskArrayofObjects('task-c');
@@ -75,4 +67,4 @@ describe('test for update checked and clear completed functions',() => {
     const tasksElt = document.querySelectorAll('.task');
     expect(tasksElt).toHaveLength(0);
   });
-})
+});

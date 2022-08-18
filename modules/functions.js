@@ -6,14 +6,13 @@ const allToDos = () => toDoList;
 const setTasksList = (newTasksList) => {
   toDoList = newTasksList;
 };
+// function to set the task to local storage
 const addToLocalStorage = (task) => {
   toDoList = JSON.parse(localStorage.getItem('tasks: '));
   if (toDoList == null) { toDoList = []; }
   toDoList.push(task);
   localStorage.setItem('tasks: ', JSON.stringify(toDoList));
 };
-
-// const inputVal = document.getElementById('add');
 
 // function for the add button
 function taskDisplay(todos) {
@@ -39,9 +38,9 @@ function taskDisplay(todos) {
   listDiv.appendChild(ellipsis);
   listDiv.appendChild(deleteBtn);
   addList.appendChild(listDiv);
-
   taskValue.className = 'checkTask';
 }
+
 // function to get tasks from local Storage and display from Storage
 const getTaskFromLocStg = () => {
   toDoList = JSON.parse(localStorage.getItem('tasks: '));
@@ -103,8 +102,8 @@ const highlightTask = (index) => {
 
 // function for the clear completed button,
 const clearCompleted = () => {
-  const tasksElt = document.querySelectorAll('.task');
-  toDoList.forEach((task, index) => {
+  // const tasksElt = document.querySelectorAll('.task');
+  toDoList.forEach((task) => {
     if (task.completed === true) {
       // tasksElt[index].remove();
     }
@@ -126,5 +125,5 @@ export {
   taskDisplay,
   getTaskFromLocStg,
   taskArrayofObjects,
-  setTasksList
+  setTasksList,
 };
